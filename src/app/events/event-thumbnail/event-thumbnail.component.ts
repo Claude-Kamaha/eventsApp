@@ -11,6 +11,7 @@ export class EventThumbnailComponent implements OnInit {
   constructor() { }
 @Input() event:any;
 @Output() eventClick = new EventEmitter
+
 sometypes:any ="some values"
 handleClickMe(){
 this.eventClick.emit(this.event.name)
@@ -19,6 +20,13 @@ logfoo(){
   console.log('hey it is me')
 }
   ngOnInit(): void {
+  }
+  colorClass(){
+    const ealyStart = this.event && this.event.time ==='8:00 am'
+    return {
+      green: ealyStart,
+      bold:ealyStart
+    }
   }
 
 }
