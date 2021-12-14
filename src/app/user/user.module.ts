@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile/profile.component';
 import { RouterModule } from '@angular/router';
 import { userRoutes } from './user.route';
+import { LoginComponent } from './login/login.component';
 
 
 
@@ -12,7 +13,8 @@ import { userRoutes } from './user.route';
     RouterModule.forChild(userRoutes)
   ],
   declarations: [
-    ProfileComponent
+    ProfileComponent,
+    LoginComponent
   ],
   providers:[
   ]

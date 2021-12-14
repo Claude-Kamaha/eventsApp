@@ -20,6 +20,7 @@ import { RouterModule } from '@angular/router';
 import { appRoute } from './route';
 //import { CreateEventComponent } from './events/create-event/create-event.component';
 import { Page404Component } from './errors/page404/page404.component';
+import { AuthService } from './user/auth.service';
 //import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
 //import { ProfileComponent } from './user/profile/profile.component';
 
@@ -40,6 +41,7 @@ import { Page404Component } from './errors/page404/page404.component';
   ],
   providers: [ToastrService,EventService,
     EventRouteActivatorService,
+    AuthService,
 
   {
     provide:'canDeactivateCreateEvent',
