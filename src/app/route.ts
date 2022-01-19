@@ -5,6 +5,7 @@ import { CreateEventComponent } from "./events/create-event/create-event.compone
 import { Page404Component } from "./errors/page404/page404.component";
 import { EventRouteActivatorService } from "./events/event-details/event-route-activator.service";
 import { EventListResolverService } from "./events/shared/event-list-resolver.service";
+import { CreateSessionComponent } from "./events/event-details/create-session/create-session.component";
 
 export const appRoute:Routes =[
 {path:'events/new', component: CreateEventComponent,
@@ -19,6 +20,7 @@ canActivate: [EventRouteActivatorService]},
   path: 'user',
   loadChildren: () => import('./user/user.module')
   .then(m=>m.UserModule)
-}
+},
+{path:'events/session/new', component: CreateSessionComponent},
 
 ]

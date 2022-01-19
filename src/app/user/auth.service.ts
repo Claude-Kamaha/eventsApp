@@ -17,7 +17,7 @@ loginUser(userName: string, password: string){
 
 }
 isAuthenticated(){
-  console.log(!!this.currentUser)
+  
   return !!this.currentUser
 }
   constructor() { }

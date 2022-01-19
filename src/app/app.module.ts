@@ -21,6 +21,9 @@ import { appRoute } from './route';
 //import { CreateEventComponent } from './events/create-event/create-event.component';
 import { Page404Component } from './errors/page404/page404.component';
 import { AuthService } from './user/auth.service';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { CreateSessionComponent } from './events/event-details/create-session/create-session.component';
+import { SessionListComponent } from './events/event-details/session-list/session-list.component';
 //import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
 //import { ProfileComponent } from './user/profile/profile.component';
 
@@ -33,10 +36,14 @@ import { AuthService } from './user/auth.service';
     EventDetailsComponent,
     CreateEventComponent,
     Page404Component,
+    CreateSessionComponent,
+    SessionListComponent,
     //ProfileComponent
   ],
   imports: [
     BrowserModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoute)
   ],
   providers: [ToastrService,EventService,
