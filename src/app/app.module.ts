@@ -24,6 +24,7 @@ import { AuthService } from './user/auth.service';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session/create-session.component';
 import { SessionListComponent } from './events/event-details/session-list/session-list.component';
+import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
 //import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
 //import { ProfileComponent } from './user/profile/profile.component';
 
@@ -38,6 +39,7 @@ import { SessionListComponent } from './events/event-details/session-list/sessio
     Page404Component,
     CreateSessionComponent,
     SessionListComponent,
+    CollapsibleWellComponent,
     //ProfileComponent
   ],
   imports: [
