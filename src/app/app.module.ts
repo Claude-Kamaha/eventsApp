@@ -25,6 +25,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CreateSessionComponent } from './events/event-details/create-session/create-session.component';
 import { SessionListComponent } from './events/event-details/session-list/session-list.component';
 import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
+import { DurationPipe } from './events/shared/duration.pipe';
 //import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
 //import { ProfileComponent } from './user/profile/profile.component';
 
@@ -40,6 +41,7 @@ import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-
     CreateSessionComponent,
     SessionListComponent,
     CollapsibleWellComponent,
+    DurationPipe,
     //ProfileComponent
   ],
   imports: [

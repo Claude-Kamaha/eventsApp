@@ -11,6 +11,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 export class EventDetailsComponent implements OnInit {
   event!: IEvent;
   addMode!: boolean;
+  filterBy: string ='all'
   constructor(private eventService: EventService,
    private route: ActivatedRoute) { }
 
@@ -33,5 +34,9 @@ export class EventDetailsComponent implements OnInit {
   }
   cancelAddSession(){
     this.addMode = false
+  }
+  test(event:any){
+    console.log(this.filterBy)
+   // console.log(event.target.attributes.class)
   }
 }
