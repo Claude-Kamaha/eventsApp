@@ -13,7 +13,7 @@ import {
 //import { EventsListComponent } from './events/events-list/events-list.component';
 //import { EventThumbnailComponent } from './events/event-thumbnail/event-thumbnail.component';
 import { NavbarComponent } from './nav/navbar/navbar.component';
-import { ToastrService } from './common/toastr.service';
+import { Toastr, TOASTR_TOKEN } from './common/toastr.service';
 //import { EventService } from './events/shared/event.service';
 //import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { RouterModule } from '@angular/router';
@@ -29,6 +29,7 @@ import { DurationPipe } from './events/shared/duration.pipe';
 //import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
 //import { ProfileComponent } from './user/profile/profile.component';
 
+declare let toastr: Toastr
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,8 +51,17 @@ import { DurationPipe } from './events/shared/duration.pipe';
     ReactiveFormsModule,
     RouterModule.forRoot(appRoute)
   ],
-  providers: [ToastrService,EventService,
+  providers: [
+    {
+      provide:'TOASTR_TOKEN',
+      useValue: toastr
+    },
+    EventService,
     EventRouteActivatorService,
+    // {
+    //   provide:EventRouteActivatorService,
+    //   useClass: EventRouteActivatorService
+    // },
     AuthService,
 
   {
