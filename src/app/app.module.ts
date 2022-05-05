@@ -8,12 +8,14 @@ import {
   EventService,
   EventDetailsComponent,
   CreateEventComponent,
-  EventRouteActivatorService
+  EventRouteActivatorService,
+  LocationValidator
 } from './events/index'
 //import { EventsListComponent } from './events/events-list/events-list.component';
 //import { EventThumbnailComponent } from './events/event-thumbnail/event-thumbnail.component';
 import { NavbarComponent } from './nav/navbar/navbar.component';
-import { Toastr, TOASTR_TOKEN } from './common/toastr.service';
+import { Toastr, TOASTR_TOKEN, JQ_TOKEN } from './common/index';
+//import { , TOASTR_TOKEN,  } from './common/toastr.service';
 //import { EventService } from './events/shared/event.service';
 //import { EventDetailsComponent } from './events/event-details/event-details.component';
 import { RouterModule } from '@angular/router';
@@ -26,10 +28,13 @@ import { CreateSessionComponent } from './events/event-details/create-session/cr
 import { SessionListComponent } from './events/event-details/session-list/session-list.component';
 import { CollapsibleWellComponent } from './common/collapsible-well/collapsible-well.component';
 import { DurationPipe } from './events/shared/duration.pipe';
+import { JQueryStyleEventEmitter } from 'rxjs/internal/observable/fromEvent';
+import { SimpleModalComponent } from './common/simple-modal/simple-modal.component';
 //import { EventRouteActivatorService } from './events/event-details/event-route-activator.service';
 //import { ProfileComponent } from './user/profile/profile.component';
 
-declare let toastr: Toastr
+declare let toastr: Toastr;
+declare let jQuery: any;
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,18 +48,25 @@ declare let toastr: Toastr
     SessionListComponent,
     CollapsibleWellComponent,
     DurationPipe,
+    SimpleModalComponent,
+    LocationValidator
     //ProfileComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
+    LocationValidator,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoute)
   ],
   providers: [
     {
-      provide:'TOASTR_TOKEN',
+      provide: 'TOASTR_TOKEN',
       useValue: toastr
+    },
+    {
+      provide: 'JQ_TOKEN',
+      useValue: jQuery
     },
     EventService,
     EventRouteActivatorService,
@@ -64,16 +76,16 @@ declare let toastr: Toastr
     // },
     AuthService,
 
-  {
-    provide:'canDeactivateCreateEvent',
-    useValue: checkDirtyState
-  }
-],
+    {
+      provide: 'canDeactivateCreateEvent',
+      useValue: checkDirtyState
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
-export function checkDirtyState(component: CreateEventComponent){
-if (component.isDirty)
-  return window.confirm('you have not saved this event')
+export function checkDirtyState(component: CreateEventComponent) {
+  if (component.isDirty)
+    return window.confirm('you have not saved this event')
   return true
 }
